@@ -1,0 +1,12 @@
+/* pages/find/find.wxss */
+page{
+  padding-top:89rpx;
+
+}
+.container{
+  height: 100vh;
+  background-color: #000000;
+}
+.void-box video{
+  width: 100%;
+}

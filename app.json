@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/menu/menu",
+    "pages/find/find",
+    "pages/order/order",
+    "pages/user/user",
+    "pages/trolley/trolley",
+    "pages/memberDetails/memberDetails",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "IOZone",
+    "navigationBarTextStyle":"black"
+  }
+}

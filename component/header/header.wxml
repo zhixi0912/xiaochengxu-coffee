@@ -1,0 +1,18 @@
+<!--component/header/header.wxml-->
+<view  name='header'class="header" id='header'>
+  <i-row>
+    <i-col span="8" i-class="col-class top-title-1">
+      <view class='icon-box-l'><image class='icon-img' src='../../component/images/kafeibei.png'></image></view>
+      <text class="icon-box-l-name">外带</text>
+    </i-col>
+    <i-col span="8" i-class="col-class top-title-2">
+      <view>排队状态<text>{{ranks}}</text>杯</view>
+      <view>预计等待<text>{{ranksTime}}</text>分钟</view>
+    </i-col>
+    <i-col span="8" i-class="col-class top-title-3">
+      <text>{{userInfo.nickName}}</text>
+      <view class='icon-box-r'><image class='icon-img' src='{{userInfo.avatarUrl}}'></image></view>
+    </i-col>
+  </i-row>  
+  <view class='translate'>EN</view>
+</view >

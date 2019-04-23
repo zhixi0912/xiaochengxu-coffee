@@ -1,0 +1,51 @@
+<!--pages/trolley/trolley.wxml-->
+<view class='header'>
+  <header id="header" userInfoName="{{userInfo.nickName}}" userInfoImg="{{userInfo.avatarUrl}}"></header>
+</view>
+<view class="container">  
+  <view class='weui-cells'>
+    <view class='weui-cell' wx:for="{{countData}}" wx:key="index">
+      <view class='weui-cell__hd'><image class="tab-img" src="{{item.image}}" data-current="0"></image></view>
+      <view class='weui-cell__bd'>
+        <view class='shopping-h1'>{{item.product_name ? item.product_name:item.category_name}}</view>
+        <view class='shopping-h2'>{{item.en_name}}</view>
+      </view>
+      <view class='weui-cell__ft'>
+        <view class='shopping-price'>
+          <view class='shopping-price-1'>￥28</view>
+          <view class='shopping-price-2'>+￥2</view>
+        </view>
+        <view class='btn-close' data-id="{{item.id}}" bindtap="delShopping">
+          <i-icon type="close" class='list-close' />
+        </view>
+        
+      </view>
+    </view>
+  </view>
+
+  <view class='to-btn'><i-button bind:click="handleClickTo">{{countData.length==0 ? '添加饮品':'继续购买'}}</i-button></view>
+
+  <view class='settlement'>
+    <i-row>
+      <i-col span="14" i-class="col-class">
+        <view class='settlement-title settlement-h1'>总价:￥286</view>
+        <view class='settlement-title settlement-h2'>8商品</view>
+      </i-col>
+      <i-col span="10" i-class="col-class col-class-btn">
+        <i-button bind:click="handleClick" type="warning" long="true">去买单</i-button>
+      </i-col>
+  </i-row>
+  </view>
+</view>
+<view class='tabbar'>
+  <!-- <import src ="../../component/footer/footer.wxml"/>
+  <template is="tabbar" /> -->
+  <!-- <tabbar id="tabbar" current="task" ></tabbar> -->
+  <i-tab-bar current="{{current}}" color="#f759ab" bindchange="handleChange">
+      <i-tab-bar-item key="browse" icon="browse" current-icon="browse_fill" title="发现"></i-tab-bar-item>
+      <i-tab-bar-item key="task" icon="task" current-icon="task_fill" title="菜单"></i-tab-bar-item>
+      <i-tab-bar-item key="publishgoods_fill" icon="publishgoods_fill" current-icon="publishgoods_fill" title="购物车" count="{{count}}"></i-tab-bar-item>
+      <i-tab-bar-item key="createtask" icon="createtask" current-icon="createtask_fill" title="订单"></i-tab-bar-item>
+      <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+  </i-tab-bar>
+</view>

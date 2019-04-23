@@ -1,0 +1,126 @@
+/* pages/user/user.wxss */
+page{
+  padding-top: 0;
+}
+.user-box{
+  background-color: #282828;
+  padding-top: 100rpx;
+  position: relative;
+}
+.user-box .user-con{
+  background-color: #0f2030;
+  padding: 50rpx 0;
+  color: #fff;
+  font-size: 26rpx;
+}
+.user-box .user-icon {
+  position: absolute;
+  left: 2%;
+  top: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #808080;
+   color: #fff;
+  border-radius: 50%;
+  display: block;
+}
+.user-box .user-en {
+  position: absolute;
+  right: 2%;
+  top: 0rpx;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #808080;
+  color: #fff;
+  border-radius: 50%;
+  display: block;
+}
+.head-nav{
+  background-color: #282828;
+}
+.head-nav .head-nav-bg{
+  background: inherit
+}
+.user-con .user-name{
+  font-size: 36rpx;
+}
+.user-con .user-member{
+  margin: 10rpx 0;
+}
+.user-con .user-member .icon-box{
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-block
+}
+.user-con .user-member text{
+  display: inline-block;
+}
+.user-con .user-member .icon-box icon{
+  width: 40rpx;
+  height: 80rpx;
+  color: #f5c51b;
+  font-size: 34rpx;
+  position: absolute;
+  top: -14rpx;
+  left: 0;
+}
+.user-con .user-line-en{
+  color: #c0c0c0;
+  padding-top: 5rpx;
+}
+.user-con .user-line-en text{
+  color: #fff;
+  font-size: 32rpx;
+}
+.user-more-box{
+  vertical-align: bottom;
+  min-height: 124rpx;
+  position: relative;
+}
+.user-more{
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  right: 10rpx;
+  margin-top: -10rpx;
+  color: #c0c0c0;
+}
+.user-tab-con{
+  padding: 100rpx 0;
+  background-color: #fff;
+}
+.tab-con-h1{
+  color: #000;
+  text-align: center;
+  font-size: 30rpx;
+}
+.tab-con-h2{
+  color: #999999;
+  text-align: center;
+  font-size: 34rpx;
+  margin: 5rpx 0;
+}
+.tab-con-h3 button{
+  width: 60%;
+  margin: 0 auto;
+}
+.user-tab-con{
+  text-align: center;
+}
+
+.icon-user-box{
+  width: 60rpx;
+  height: 60rpx;
+  display: inline-block;
+}
+.icon-user-box .icon-img{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 50%;
+}

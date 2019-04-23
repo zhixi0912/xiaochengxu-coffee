@@ -1,0 +1,25 @@
+<!--component/dialog/dialog.wxml-->
+
+ <view class="fenxiang-box">
+    <image bindtap="show" src="/images/sucai/b1.jpg" class="fenxiang-btn"></image>
+  </view>
+
+<view class="modal-box" hidden="{{flag}}" bindtap="hide">
+    <view class="modal-content">
+      <swiper indicator-dots="true" autoplay="{{false}}"autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-dots="true">
+          <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <swiper-item>
+                <view class='modal-main'>
+                  <image src="{{item}}"/>
+                 
+                </view>
+                
+            </swiper-item>
+          </block>
+      </swiper>
+    </view>
+    <view>
+      <button class="knowBtn" bindtap="hide">我知道了</button>
+    </view>
+</view>
+

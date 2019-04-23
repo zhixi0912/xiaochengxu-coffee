@@ -1,0 +1,69 @@
+<!--pages/user/user.wxml-->
+
+<view class="container">  
+  <view class='user-box'>
+    <view class='user-icon icon-user-box'>
+      <image class='icon-img' src='{{userInfo.avatarUrl}}'></image>
+    </view>
+    <view class='user-en'>EN</view>
+    <view class='user-con'>
+      <i-row>
+          <i-col span="10" offset="6" i-class="col-class">
+            <view class='user-name block-hide'>{{userInfo.nickName}}</view>
+            <view class='user-member'>
+              <view class='icon-box'>
+                <icon class='icon iconfont icon-huiyuan'></icon>
+              </view>
+              <text>IOZone会员</text>
+              
+            </view>
+            <view class='user-line-en block-hide'>
+             coffee <text>OL</text>-coffee <text>OL</text>
+            </view>
+          </i-col>
+          <i-col span="8" i-class="col-class user-more-box">
+            <view class='user-more'>查看会员等级<i-icon type="enter" /></view>
+          </i-col>
+      </i-row>
+    </view>
+    
+    
+
+  </view>
+  <view class='user-tab-box'>
+      <view class='head-nav'>
+        <i-tabs current="{{ currents }}" color="#f5c51b" bindchange="handleChanges" i-class="head-nav-bg">
+            <i-tab key="0" title="评价我的比率"></i-tab>
+            <i-tab key="1" title="我的记录"></i-tab>
+            <i-tab key="2" title="我的优惠券"></i-tab>
+        </i-tabs>
+      </view>
+      <view hidden="{{currents != '0'}}">
+          <view class='user-tab-con'>
+            <view class='tab-con-h1'>快来调制你的饮品</view>
+            <view class='tab-con-h2'>我们替你记录你的口味偏好</view>
+            <view class='tab-con-h2'>让你找到最适合你的饮品</view>
+            <view class='tab-con-h3'><i-button bind:click="toLinkMenu">调制我的饮品</i-button></view>
+          </view>
+      </view>
+      <view hidden="{{currents != '1'}}">
+        <view class='user-tab-con '><text>暂无记录</text></view>
+      </view>
+      <view hidden="{{currents != '2'}}">
+        <view class='user-tab-con'><text>暂无优惠券</text></view>
+      </view>
+      
+    </view>
+</view>
+<view class='tabbar'>
+  <!-- <import src ="../../component/footer/footer.wxml"/>
+  <template is="tabbar" /> -->
+  <!-- <tabbar id="tabbar" current="task" ></tabbar> -->
+  <i-tab-bar current="{{current}}" color="#f759ab" bindchange="handleChange">
+      <i-tab-bar-item key="browse" icon="browse" current-icon="browse_fill" title="发现"></i-tab-bar-item>
+      <i-tab-bar-item key="task" icon="task" current-icon="task_fill" title="菜单"></i-tab-bar-item>
+      <i-tab-bar-item key="publishgoods_fill" icon="publishgoods_fill" current-icon="publishgoods_fill" title="购物车" count="{{count}}"></i-tab-bar-item>
+      <i-tab-bar-item key="createtask" icon="createtask" current-icon="createtask_fill" title="订单"></i-tab-bar-item>
+      <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+  </i-tab-bar>
+</view>

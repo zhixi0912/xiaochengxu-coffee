@@ -1,0 +1,86 @@
+/* pages/order/order.wxss */
+page{
+  padding-top:110rpx;
+}
+.toBtn{
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50rpx;
+}
+.toBtn button{
+  background: #ffffff!important;
+  height:68rpx;
+  line-height:68rpx;
+  font-size: 28rpx;
+}
+.time-box{
+  padding: 60rpx 0;
+  background-color: #0f2030;
+  color: #ffffff;
+}
+.time-box-line{
+  text-align: center;
+}
+.time-box-line .view-wrap{
+  font-size: 48rpx;
+  
+}
+.time-box-line .view-wrap .type-title{
+  font-size: 30rpx;
+}
+.time-box-r .time-box-title-1{
+  text-align: center;
+}
+.time-box-r .time-box-title-2{
+  text-align: center;
+  font-size: 24rpx;
+  margin: 5rpx 0 20rpx 0;
+}
+.time-box-r .time-box-title-3{
+  font-size: 24rpx;
+  padding-top: 30rpx;
+}
+.steps-box-stage .col-class-4{
+  text-align: right;
+}
+.steps-box-stage .col-class-2{
+  text-align: center;
+}
+.steps-box-stage .col-class{
+  color: #3c4e5c;
+}
+.steps-box-stage .col-class.on{
+  color: #ffffff;
+}
+.steps-box-stage{
+  font-size: 24rpx;
+}
+.time-box-steps{
+  padding-right: 30rpx;
+}
+.time-box-l{
+  position: relative
+}
+.time-box-l .view-wrap{
+  padding-top: 50rpx;
+}
+
+.time-box-title-1 .icon-box{
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-block
+}
+.time-box-title-1 text{
+  display: inline-block;
+}
+.time-box-title-1 .icon-box icon{
+  width: 40rpx;
+  height: 80rpx;
+  color: #f5c51b;
+  font-size: 34rpx;
+  position: absolute;
+  top: -16rpx;
+  left: -6rpx;
+}

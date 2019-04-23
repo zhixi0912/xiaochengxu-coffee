@@ -1,0 +1,162 @@
+/**app.wxss**/
+
+@import "./utils/font/iconfont.wxss";
+@import "./component/header/header.wxss";
+page{
+  padding-bottom:120rpx;
+  padding-top: 220rpx;
+}
+.container {
+  height: 100%;
+} 
+.header{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #272727;
+  color: #979797;
+  padding-top: 10rpx;
+  z-index: 9999;
+}
+.tabbar{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+
+
+
+
+
+.top-title-2{
+  font-size: 20rpx;
+}
+.top-title-2 view{
+  vertical-align: middle;
+}
+.top-title-2 text{
+  color: #fff;
+  margin: 10rpx;
+}
+.col-class{
+  vertical-align: bottom;
+}
+.top-title-1 text,.top-title-3 text{
+  vertical-align: middle;
+  font-size: 28rpx;
+}
+.top-title-3 text{
+  max-width: 120rpx;
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  display: inline-block
+}
+.header .i-tabs-bg{
+  background:initial;
+}
+/* .header .i-tabs-bg */
+.i-tab-l{
+  margin-left: 200rpx;
+}
+.i-tab-r{
+  margin-right: 200rpx;
+}
+.header .i-tabs-tab-bar{
+  display: none;
+  background-color: #ff0000;
+}
+
+
+.weui-cell {
+    padding: 10px 15px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.weui-cell:first-child:before{
+  display: none;
+}
+.weui-cell:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 10%;
+    right: 0;
+    height: 1px;
+    width: 90%;
+    border-top: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    left: 15px;
+    z-index: 2;
+}
+.weui-cell__bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+.weui-cell__hd .tab-img{
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin-right: 20rpx;
+}
+.weui-cell_access .weui-cell__ft {
+    padding-right: 13px;
+    position: relative;
+}
+.weui-cell__ft {
+    text-align: left;
+    color: #808080;
+    min-width: 130rpx;
+}
+.weui-cell__bd  .shopping-h2{
+  font-size: 28rpx;
+  overflow: hidden;
+  /* white-space:nowrap; */
+  text-overflow:ellipsis;
+}
+.weui-cell__ft .shopping-price{
+  display: inline-block;
+}
+.weui-cell__ft .shopping-price .shopping-price-1{
+  font-size: 46rpx;
+}
+.weui-cell__ft .shopping-price .shopping-price-2{
+  font-size: 24rpx;
+  white-space:nowrap;
+  display: inline-block;
+  text-align: right;
+  float: right;
+}
+.weui-cell__ft .btn-close{
+  display: inline-block;
+  vertical-align:top;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  margin-right:-20rpx;
+  float: right;
+}
+.weui-cell__ft .btn-close .list-close{
+  color: #fff;
+}
+.block-hide{
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  display: inline-block
+}

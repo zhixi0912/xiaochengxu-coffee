@@ -1,0 +1,64 @@
+<!--pages/order/order.wxml-->
+<view class='header'>
+  <!-- <import src ="../../component/header/header.wxml"/>
+  <template is="header" /> -->
+  <i-tabs current="{{ topCurrent }}" bindchange="topChange" color="#ffc249" i-class="i-tabs-bg">
+    <i-tab key="tab1" title="制作中"></i-tab>
+    <i-tab key="tab2" title="已完成"></i-tab>
+</i-tabs>
+
+</view>
+<view class="container">  
+  <view class='time-box'>
+    <i-row>
+        <i-col span="8" i-class="col-class time-box-line time-box-l">
+          <view class="view-wrap">
+              <text class="type-title">预计等待时间</text>
+              <i-count-down
+                      target="{{targetTime}}"
+                      countdown-class="big"
+                      clear-timer="{{clearTimer}}"
+              ></i-count-down>
+          </view>
+        </i-col>
+        <i-col span="16" i-class="col-class time-box-r">
+          <view class='time-box-title-1'>
+            <view class='icon-box'>
+              <icon class='icon iconfont icon-huiyuan'></icon>
+            </view>
+            <text>已成为IO会员</text>
+          </view>
+          <view class='time-box-title-2'>拿铁享有26块优惠价格！</view>
+          <view class='time-box-steps'>
+            <view class='steps-box'>
+                <view class="progress-item">
+                  <i-progress percent="30" hide-info="false"></i-progress>
+              </view>
+            </view>
+            <view class='steps-box-stage'>
+              <i-row>
+                <i-col span="5" i-class="col-class">lv.1</i-col>
+                <i-col span="7" i-class="col-class col-class-2 on">lv.2</i-col>
+                <i-col span="7" i-class="col-class col-class-2">lv.3</i-col>
+                <i-col span="5" i-class="col-class col-class-4">lv.4</i-col>
+            </i-row>
+            </view>
+          </view>
+          <view class='time-box-title-3'>查看会员等级规则</view>
+        </i-col>
+    </i-row>
+  </view>
+  <i-button bind:click="toLinkTrolley" class="toBtn">查看更多当前订单</i-button>
+</view>
+<view class='tabbar'>
+  <!-- <import src ="../../component/footer/footer.wxml"/>
+  <template is="tabbar" /> -->
+  <!-- <tabbar id="tabbar" current="task" ></tabbar> -->
+  <i-tab-bar current="{{current}}" color="#f759ab" bindchange="handleChange">
+      <i-tab-bar-item key="browse" icon="browse" current-icon="browse_fill" title="发现"></i-tab-bar-item>
+      <i-tab-bar-item key="task" icon="task" current-icon="task_fill" title="菜单"></i-tab-bar-item>
+      <i-tab-bar-item key="publishgoods_fill" icon="publishgoods_fill" current-icon="publishgoods_fill" title="购物车" count="{{count}}"></i-tab-bar-item>
+      <i-tab-bar-item key="createtask" icon="createtask" current-icon="createtask_fill" title="订单"></i-tab-bar-item>
+      <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+  </i-tab-bar>
+</view>

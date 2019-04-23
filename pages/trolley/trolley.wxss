@@ -1,0 +1,26 @@
+/* pages/trolley/trolley.wxss */
+page{
+  background-color: #f8f8f6;
+  padding-top:72rpx;
+  padding-bottom:310rpx;
+}
+.weui-cells{
+  background-color: #fff;
+}
+.to-btn button{
+  width: 50%;
+  margin: 40rpx auto;
+}
+.settlement{
+  position: fixed;
+  left: 0;
+  bottom: 120rpx;
+  width: 100%;
+  background-color: #fff
+}
+.col-class-btn{
+  background-color: #f0c03a;
+}
+.settlement .settlement-title{
+  padding-left: 60rpx;
+}

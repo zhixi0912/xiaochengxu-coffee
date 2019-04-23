@@ -1,0 +1,10 @@
+<!--component/footer/footer.wxml-->
+<!-- <template name='tabbar'class="tabbar"> -->
+  <i-tab-bar current="{{ current }}" color="#f759ab" bindchange="handleChange">
+      <i-tab-bar-item key="browse" icon="browse" current-icon="browse_fill" title="发现"></i-tab-bar-item>
+      <i-tab-bar-item key="task" icon="task" current-icon="task_fill" title="菜单"></i-tab-bar-item>
+      <i-tab-bar-item key="publishgoods_fill" icon="publishgoods_fill" current-icon="publishgoods_fill" title="购物车"></i-tab-bar-item>
+      <i-tab-bar-item key="createtask" icon="createtask" current-icon="createtask_fill" title="订单"></i-tab-bar-item>
+      <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+  </i-tab-bar>
+<!-- </template> -->

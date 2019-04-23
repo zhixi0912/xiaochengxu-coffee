@@ -1,0 +1,25 @@
+<!--pages/memberDetails/memberDetails.wxml-->
+
+<view class="container" >
+  <view class="swiper-content"> 
+                  <!-- current-item-id="currentItemId" current="{{multipleNumrppg}}"  -->
+    <swiper class='coffeeClassification'  style='display:none;' autoplay='' display-multiple-items='{{multipleNum}}' previous-margin="300rpx" next-margin="300rpx"  bindchange="coffeeClassificationChangeScroll" bindtransition="eventHandles">
+         <!-- {{index==3?last:''}} -->
+          <swiper-item class="nav-box" wx:for="{{menuTwoCon}}"  wx:key="{{index}}" style="width:33%" bindtap="coffeeClassificationChange"  data-id="{{index}}">
+            <image style="width:100rpx;height:100rpx;" class="slide-image {{multipleNumIndex == index ? 'on' : ''}}"  src="{{item.image}}"/>
+          </swiper-item>
+        
+    </swiper>
+    <swiper class='coffeeClassification-box'  autoplay='' display-multiple-items='{{multipleNums}}'  previous-margin="240rpx" next-margin="240rpx" current="{{multipleNumIndex}}" bindchange="coffeeClassificationChangeScroll" bindtransition="eventHandles">
+         <!-- {{index==3?last:''}} -->
+          <swiper-item class="nav-boxs {{multipleNumIndex == index ? 'on' : ''}}"   wx:for="{{menuTwoCon}}"  wx:key="{{index}}" style="width:33%" bindtap="coffeeClassificationChange"  data-id="{{item.id}}" data-index="{{index}}">
+            <view class='item-box'>
+              <image  class="slide-image {{multipleNumIndex == index ? 'active' : ''}}"  src="{{item.image}}"/>
+              <text>{{item.product_name}}</text>
+            </view>
+            
+          </swiper-item>
+        
+    </swiper>
+  </view>
+</view>

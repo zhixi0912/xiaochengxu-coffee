@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "i-tab-bar": "../../utils/dist/tab-bar/index",
+    "i-tab-bar-item": "../../utils/dist/tab-bar-item/index",
+    "i-row": "../../utils/dist/row/index",
+    "i-col": "../../utils/dist/col/index",
+    "i-icon": "../../utils/dist/icon/index",
+    "i-tabs": "../../utils/dist/tabs/index",
+    "i-tab": "../../utils/dist/tab/index",
+    "i-button": "../../utils/dist/button/index",
+    "tabbar": "../../component/footer/footer",
+    "header": "../../component/header/header"
+  }
+}

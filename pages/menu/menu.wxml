@@ -1,0 +1,373 @@
+<!--pages/menu/menu.wxml-->
+
+<view class='header'>
+  <!-- <import src ="../../component/header/header.wxml"/>
+  <template is="header" /> -->
+  <header id="header" ></header>
+  <i-tabs current="{{ handleCurrent }}" scroll bindchange="handleChangeScroll" color="#ffc249" i-class="i-tabs-bg" data-id="{{handleCurrent}}">
+    <i-tab key="{{item.id}}" title="{{item.category_name}}" i-class="{{index==0? 'i-tab-l':''}} {{index==menuOne.length-1? 'i-tab-r':''}}" wx:for="{{menuOne}}" wx:key="index" data-id="{{item.id}}"></i-tab>
+  </i-tabs>
+</view>
+<view class="container" >
+  <view class='tab-main' hidden="{{containerOfflineState}}">网络异常</view>
+  <view class='tab-main' hidden="{{container}}">
+  
+  <view >
+  <!-- tab-item {{ (currentTab==item.id ) ?'active':''}} -->
+    <view  class="tab-h " style='display:none' >
+        <view class="tab-item {{ (currentTab==item.tid ) ?'active':''}}  {{ (item.id=='26' ) ?'coffee-nav':''}}"  data-current="{{item.id}}" bindtap="swichNavs" wx:for="{{menuTwo}}" wx:key="index" data-id="{{item.id}}"  data-tid="{{item.tid ? item.tid:''}}">
+          <image class="tab-img"  src="{{item.picurl}}" data-current="{{item.id}}"></image>
+          <text data-current="{{item.id}}">{{item.category_name}}</text>
+        </view> 
+
+
+
+
+<!-- {{menuTwo.length<3 ? 2 : menuTwoNavNum}} -->
+
+        <swiper class='menu-two' style='display:none'  autoplay='' display-multiple-items='{{menuTwo.length<3 ? 2 : menuTwoNavNum}}' previous-margin="00rpx" next-margin="00rpx"  bindchange="swichNavScroll" bindtransition="">
+        
+              <swiper-item class="nav-box {{ (menuTwoIndex == index ) ?'active':''}}  {{ (item.id=='26' ) ?'coffee-nav':''}}" wx:for="{{menuTwo}}"  wx:key="{{index}}"  bindtap="swichNav"  data-id="{{index}}">
+                <image  class="slide-image {{menuTwoIndex == index ? '' : ''}}"  src="{{item.picurl}}"/>
+                <text data-current="{{item.id}}">{{item.category_name}}</text>
+              </swiper-item>
+            
+        </swiper>       
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+    <view  class="menu-two">
+        <swiper class='menu-two'  autoplay='' display-multiple-items='{{ menuTwoNavNum}}' previous-margin="240rpx" next-margin="240rpx" current="{{menuTwoIndex}}"  bindchange="swichNavScroll" bindtransition="swichNavScroll2" bindanimationfinish="swichNavScroll3">
+        <!-- {{ (currentTab==item.tid ) ?'active':''}}  {{ (item.id=='26' ) ?'coffee-nav':''}} -->
+              <swiper-item class="nav-boxs {{ (currentTab==item.tid ) ?'on':''}}  {{ (item.id=='26' ) ?'coffee-nav':''}}" wx:for="{{menuTwo}}"  wx:key="{{index}}"  bindtap="swichNav"  data-id="{{item.id}}"  data-tid="{{item.tid ? item.tid:''}}" data-index="{{index}}">
+                <image  class="slide-image {{menuTwoIndex == index ? '' : ''}}"  src="{{item.picurl}}"/>
+                <text data-current="{{item.id}}">{{item.category_name}}</text>
+              </swiper-item>
+            
+        </swiper> 
+    </view>
+
+
+
+
+
+    <view class="tab-content" >
+            <view  class="scoll-h scoll-ratio" hidden="{{currentTab != '26n'}}" data-id='{{currentTab}}'>
+                <view class="swiper-coffee-nav">
+                    <swiper class='coffee-nav'  autoplay='' display-multiple-items='{{multipleNum}}' previous-margin="300rpx" next-margin="300rpx" current="{{coffeeNavIndexs}}"  bindchange="coffeeNav" bindtransition="">
+                        <!-- {{index==3?last:''}} -->
+                          <swiper-item class="nav-box" wx:if="{{index<2}}" wx:for="{{coffeeImg}}"  wx:key="{{index}}" style="width:33%" bindtap="coffeeNavItem" data-index="{{index}}" data-id="{{index}}" data-src="{{item}}">
+                            <image style="width:100rpx;height:100rpx;" class="slide-image {{coffeeNavIndexs == index ? 'on' : ''}}"  src="{{item}}"/>
+                            <view class='coffee-name'>{{index==0 ? '清咖':'奶咖'}}</view>
+                            <view  class='coffee-price'>{{index==0 ? '￥24':'￥29'}}</view>
+                          </swiper-item>
+                        
+                    </swiper>
+                </view>
+                <view class="swiper-coffee-line-box"><view class="swiper-coffee-line"></view></view>
+                <view class="swiper-content swiper-sweet-content">
+                      <swiper class='coffeeClassification'  autoplay='' display-multiple-items='{{multipleNum}}' previous-margin="300rpx" next-margin="300rpx"  bindchange="coffeeClassificationChangeScroll"  current="{{multipleNumIndex}}" bindtransition="">
+                            <!-- {{index==3?last:''}} -->
+                              <swiper-item class="nav-box" wx:for="{{coffeeImg}}"  wx:key="{{index}}" style="width:33%" bindtap="coffeeClassificationChange"  data-id="{{index}}" data-index="{{index}}" data-src="{{item}}">
+                                <image wx:if="{{index==0}}" style="width:100rpx;height:100rpx;" class="slide-image {{multipleNumIndex == index ? 'on' : ''}}"  data-src="{{idnex==0}}" src="../../component/images/stop.png"/>
+                                <image wx:else style="width:100rpx;height:100rpx;" class="slide-image {{multipleNumIndex == index ? 'on' : ''}}"  data-src="{{idnex==0}}" src="{{item}}"/>
+                                <view class='coffee-name' wx:if="{{index==0}}">{{index==0 ? '不加风味':''}}</view>
+                                <view  class='coffee-price' wx:if="{{!index}}">{{index==0 ? '':'￥29'}}</view>
+                              </swiper-item>
+                            
+                        </swiper>
+                
+                  </view>
+                <view class="swiper-coffee-line-box"><view class="swiper-coffee-line"></view></view>
+
+                <view class="swiper-content swiper-coffee-milk">
+                    <swiper class='coffee-nav'  autoplay='' display-multiple-items='{{multipleNum}}' previous-margin="300rpx" next-margin="300rpx"  bindchange="coffeeMilk" current="{{coffeeMilkIndex}}"  bindtransition="">
+                        <!-- {{index==3?last:''}} -->
+                          <swiper-item class="nav-box" wx:if="{{index<2}}" wx:for="{{coffeeImg}}"  wx:key="{{index}}" style="width:33%" bindtap="coffeeMilkItem" data-index="{{index}}"  data-id="{{index}}" data-src="{{item}}">
+                            <image style="width:100rpx;height:100rpx;" class="slide-image {{coffeeMilkIndex == index ? 'on' : ''}}"  src="{{item}}"/>
+                            <view class='coffee-name'>{{index==0 ? '全脂奶':'燕麦奶'}}</view>
+                            <view  class='coffee-price'>{{index==0 ? '':'￥4'}}</view>
+                          </swiper-item>
+                        
+                    </swiper>
+                </view>
+                <view class="swiper-coffee-line-box"><view class="swiper-coffee-line"></view></view>
+                <view class="swiper-content swiper-coffee-bean">
+                    <swiper class='coffee-nav'  autoplay='' display-multiple-items='{{multipleNum}}' previous-margin="300rpx" next-margin="300rpx" current="{{coffeeBeanIndex}}" bindchange="coffeeBean" bindtransition="">
+                        <!-- {{index==3?last:''}} -->
+                          <swiper-item class="nav-box" wx:if="{{index<2}}" wx:for="{{coffeeImg}}"  wx:key="{{index}}" style="width:33%" bindtap="coffeeBeanItem"  data-index="{{index}}" data-id="{{index}}" data-src="{{item}}">
+                            <image style="width:100rpx;height:100rpx;" class="slide-image {{coffeeBeanIndex == index ? 'on' : ''}}"  src="{{item}}"/>
+                            <view class='coffee-name'>{{index==0 ? '意式咖啡豆':'比率甄选'}}</view>
+                            <view  class='coffee-price'>{{index==0 ? '':'￥2'}}</view>
+                          </swiper-item>
+                        
+                    </swiper>
+                </view>
+                <view class="swiper-content swiper-coffee-box swiper-coffee-hot">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">冷热</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                  
+                        <i-button i-class='{{cf_is_hot=="0"  ? "on":""}}' data-id="0" bind:click="cfHotClick" size="small">热</i-button>
+                        <i-button i-class='{{cf_is_hot=="1"  ? "on":""}}' data-id="1"  bind:click="cfHotClick" size="small">冷</i-button>
+                      </i-col>
+                    </i-row>
+                </view>
+                <view class="swiper-content swiper-coffee-box swiper-coffee-density">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">咖啡浓度</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+
+                         
+                          <view class="intro">
+                            <slider bindchanging="coffeeSliderchange" bindchange="coffeeSliderchangeEnd" step='{{coffeeSliderStep}}' min="{{minValue}}" max="{{maxValue}}" activeColor="#f0c03a" block-color="#f0c03a" block-size="20" value="{{coffeeValue}}" aria-label="{{coffeeValue}}" show-value/>
+                          </view>
+
+
+
+
+<!--                   
+                        <i-button i-class='{{cf_is_density=="0"  ? "on":""}}' data-id="0" bind:click="hotClick" size="small">热</i-button>
+                        <i-button i-class='{{cf_is_density=="1"  ? "on":""}}' data-id="1"  bind:click="hotClick" size="small">冷</i-button> -->
+                      </i-col>
+                    </i-row>
+                </view>
+                <view class="swiper-content swiper-coffee-box swiper-coffee-milk">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">牛奶/奶泡</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                        <view class="intro">
+                            <slider bindchanging="milkSliderchange" min="{{milkMinValue}}" max="{{milkMaxValue}}" activeColor="#f0c03a" block-color="#f0c03a" block-size="20" value="{{}}" show-value/>
+                          </view>
+                        <!-- <i-button i-class='{{cf_is_milk=="0"  ? "on":""}}' data-id="0" bind:click="hotClick" size="small">热</i-button>
+                        <i-button i-class='{{cf_is_milk=="1"  ? "on":""}}' data-id="1"  bind:click="hotClick" size="small">冷</i-button> -->
+                      </i-col>
+                    </i-row>
+                </view>
+                <view class="swiper-content swiper-coffee-box swiper-coffee-sweet">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">甜度</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                        <view class="intro">
+                            <slider bindchanging="sweetSliderchange" min="{{minValue}}" max="{{maxValue}}" activeColor="#f0c03a" block-color="#f0c03a" block-size="20" value="{{sweetValue}}" show-value/>
+                          </view>
+                        <!-- <i-button i-class='{{cf_is_sweet=="0"  ? "on":""}}' data-id="0" bind:click="hotClick" size="small">热</i-button>
+                        <i-button i-class='{{cf_is_sweet=="1"  ? "on":""}}' data-id="1"  bind:click="hotClick" size="small">冷</i-button> -->
+                      </i-col>
+                    </i-row>
+                </view>
+                <view class="swiper-content swiper-coffee-box swiper-coffee-water">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">水</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                        <view class="intro">
+                            <slider bindchanging="waterSliderchange" min="{{minValue}}" max="{{maxValue}}" activeColor="#f0c03a" block-color="#f0c03a" block-size="20" value="{{waterValue}}" show-value/>
+                          </view>
+                        <!-- <i-button i-class='{{cf_is_water=="0"  ? "on":""}}' data-id="0" bind:click="hotClick" size="small">热</i-button>
+                        <i-button i-class='{{cf_is_water=="1"  ? "on":""}}' data-id="1"  bind:click="hotClick" size="small">冷</i-button> -->
+                      </i-col>
+                    </i-row>
+                </view>
+            </view>
+            <view  class="scoll-h" >
+              
+                    <view class="item-ans" wx:for="{{menuTwoCon}}" wx:key="index" data-id="{{item.id}}">
+                        <view class="avatar">
+                            <image class="img" src="{{item.image}}"></image>
+                        </view>   
+                        <view class="expertInfo">
+                            <view class="name">{{item.product_name}}</view>
+                            <view class="tag">{{item.en_name}}</view>
+                            <view class="answerHistory">
+                              <text class='price'>￥{{item.price}}</text> 
+                              <view class='discount' hidden="{{handleCurrent != '26'}}" data-id="{{handleCurrent}}">
+                                <view class='icon-box' >
+                                  <image class='icon-img' src='../../component/images/mianbao.png'></image>
+                                </view>
+                                <view class='discount-l'>会员享有</view>
+                                <view class='discount-r'>￥20</view>
+                              </view>
+                            </view>
+                        </view>
+                        <view  class="askBtn" bindtap="show" data-id="{{item.id}}">+</view> 
+                    </view>
+              
+
+
+
+
+
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </view>
+        
+    </view>
+</view>
+
+ </view>
+</view>
+<view class='coffee-add-box' hidden="{{currentTab != '26n'}}">
+  <view class='coffee-add-title'>比率咖啡</view>
+  <i-row i-class="modal-group" >
+    <i-col span="4" i-class="col-class ratio-line">
+      <view class='ratio-name'>浓缩咖啡</view>
+      <view class='ratio-num'>{{coffeeValue}}</view>
+    </i-col>
+    <i-col span="3" i-class="col-class ratio-line">
+      <view class='ratio-name'>牛奶</view>
+      <view class='ratio-num'>{{milkValue}}</view>
+    </i-col>
+    <i-col span="3" i-class="col-class ratio-line">
+      <view class='ratio-name'>奶泡</view>
+      <view class='ratio-num'>{{milk2Value}}</view>
+    </i-col>
+    <i-col span="3" i-class="col-class ratio-line">
+      <view class='ratio-name'>甜度</view>
+      <view class='ratio-num'>{{sweetValue}}</view>
+    </i-col>
+    <i-col span="2" i-class="col-class ratio-line">
+      <view class='ratio-name'>水</view>
+      <view class='ratio-num'>{{waterValue}}</view>
+    </i-col>
+    <i-col span="3" i-class="col-class ratio-line">
+      <view class='ratio-name'>酒精</view>
+      <view class='ratio-num'>{{alcoholValue}}</view>
+    </i-col>
+    <i-col span="4" i-class="col-class ratio-line">
+      <view class='ratio-add'  data-id="{{currentTab}}"  bindtap="addShopping"><i-icon type="add" size='22' /></view>
+    </i-col>
+  </i-row>
+</view>
+<view class='tabbar'>
+  <!-- <import src ="../../component/footer/footer.wxml"/>
+  <template is="tabbar" /> -->
+  <!-- <tabbar id="tabbar" current="task" ></tabbar> -->
+  <i-tab-bar current="{{ current }}" color="#f759ab" bindchange="handleChange">
+      <i-tab-bar-item key="browse" icon="browse" current-icon="browse_fill"  title="发现"></i-tab-bar-item>
+      <i-tab-bar-item key="task" icon="task" current-icon="task_fill" title="菜单"></i-tab-bar-item>
+      <i-tab-bar-item key="publishgoods_fill" icon="publishgoods_fill" current-icon="publishgoods_fill" title="购物车" count="{{count}}"></i-tab-bar-item>
+      <i-tab-bar-item key="createtask" icon="createtask" current-icon="createtask_fill" title="订单"></i-tab-bar-item>
+      <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+  </i-tab-bar>
+</view>
+
+<view class="modal-box" hidden="{{flag}}">
+    <view class="modal-content">
+      <swiper indicator-dots="true" autoplay="{{autoplay}}"  interval="{{interval}}"  current="{{currentIndex}}" duration="{{duration}}" circular="true" previous-margin="40rpx" next-margin="40rpx">
+          <block wx:for="{{menuTwoCon}}" wx:key="index"  current="{{showId}}" >
+            <swiper-item current="{{currentIndex}}">
+              <view class='modal-main' data-id="{{item.id}}">
+                <view class='modal-img-box'>
+                  <image class='modal-shop-img' src="{{item.image}}"/>
+                  <view class='modal-box-close'>
+                    <i-icon type="close" bindtap="hide" />
+                  </view>
+                </view>
+                <view class='shopping-name'>{{item.product_name}}</view>
+                <view>
+                  <view class='option-box'>
+                  <view class='is_hot' hidden="{{!item.is_hot.length >0}}">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">冷热</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                  
+                        <i-button i-class='{{is_hot=="0"  ? "on":""}}' data-id="0" bind:click="hotClick" size="small">热</i-button>
+                        <i-button i-class='{{is_hot=="1"  ? "on":""}}' data-id="1"  bind:click="hotClick" size="small">冷</i-button>
+                      </i-col>
+                    </i-row>
+                  </view>
+                  <view class='is_bean' hidden="{{!item.is_bean.length >0}}">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">咖啡豆</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                  
+                        <i-button i-class='{{is_bean=="0" ? "on":""}}' data-id="0" bind:click="beanClick" size="small">意式咖啡豆</i-button>
+                        <i-button i-class='{{is_bean=="1" ? "on":""}}' data-id="1" bind:click="beanClick" size="small">比率甄选</i-button>
+                      </i-col>
+                    </i-row>
+                  </view>
+                  <view class='is_milk' hidden="{{!item.is_milk.length >0}}">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">奶类</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                  
+                        <i-button i-class='{{is_milk=="0" ? "on":""}}' data-id="0" bind:click="milkClick" size="small">全脂</i-button>
+                        <i-button i-class='{{is_milk=="1" ? "on":""}}' data-id="1" bind:click="milkClick" size="small">燕麦奶</i-button>
+                      </i-col>
+                    </i-row>
+                  </view>
+                  <view class='is_sweet' hidden="{{!item.is_sweet.length >0}}">
+                    <i-row i-class="modal-group" >
+                      <i-col span="8" i-class="col-class modal-line-label">甜度</i-col>
+                      <i-col span="16" i-class="col-class modal-line-line">
+                        <view class='sweet-box'>
+                          <view class='sweet-line sweet-1 {{is_sweet=="0" ? "on":""}}' data-id="0" bindtap="sweetClick"></view>
+                          <view class='sweet-line sweet-2 {{is_sweet=="1" ? "on":""}}' data-id="1" bindtap="sweetClick"></view>
+                          <view class='sweet-line sweet-3 {{is_sweet=="2" ? "on":""}}' data-id="2" bindtap="sweetClick"></view>
+                        </view>
+                        
+                      </i-col>
+                    </i-row>
+                  </view>
+                  </view>
+           
+                  <i-row i-class="modal-group-bottom">
+                    <i-col span="12" i-class="col-class modal-line-price">
+                      ￥{{item.price}}
+                    </i-col>
+                    <i-col span="12" i-class="col-class modal-line-add">
+                          <view class='i-icon-box' data-id="{{item.id}}" bindtap="addShopping"><i-icon type="add" size='22' /></view>
+                        
+                    </i-col>
+                  </i-row>
+
+                </view>
+              </view>
+            </swiper-item>
+          </block>
+      </swiper>
+    </view>
+    
+</view>
+
+<!-- <view><button open-type="getUserInfo" bindgetuserinfo="getUserInfoBtn">1</button></view> -->
+<view class='grantBox' hidden="{{grantBoxState}}">
+    <view class="grantBox-con">
+      <view class='user-box'>
+        <i-icon type="integral_fill" size='58' />
+        <view class='user-name'>IOZone请求获取授权</view>
+      </view>
+      <view class='grant-btn'>
+        <i-button bindgetuserinfo="getUserInfoBtn" type="info" open-type="getUserInfo">授权登录</i-button>
+      </view>
+    </view>
+</view>

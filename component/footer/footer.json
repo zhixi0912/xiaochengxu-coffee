@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "navigationBarTitleText": "菜单",
+  "usingComponents": {
+    "i-tab-bar": "../../utils/dist/tab-bar/index",
+    "i-tab-bar-item": "../../utils/dist/tab-bar-item/index"
+  }
+}
