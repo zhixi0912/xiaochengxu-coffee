@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    url:'https://coffee.ioart.cn',
+    url:'https://********',
   }
 })
